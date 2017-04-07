@@ -13,11 +13,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 /**
  * Created by sagartahelyani on 28-03-2017.
@@ -25,23 +22,11 @@ import java.util.ArrayList;
 
 public class DroidDialog {
 
-    private View view;
-    private View viewStrip;
-    private ImageView imgIcon;
-    private Button btnNegative, btnNeutral, btnPositive;
-    private Context context;
-    private String contentTitle;
-    private TextView txtTitle, txtContent;
-    private RelativeLayout iconLayout;
-    private ArrayList<String> myData;
-    private ListView listView;
-    private Typeface typeface;
-
     public DroidDialog(final Builder builder) {
 
         final Dialog dialog = new Dialog(builder.context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        view = LayoutInflater.from(builder.context).inflate(R.layout.layout_dialog, null);
+        View view = LayoutInflater.from(builder.context).inflate(R.layout.layout_dialog, null);
         dialog.setContentView(view);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -77,24 +62,30 @@ public class DroidDialog {
             dialog.getWindow().getAttributes().windowAnimations = R.style.AnimZoomInOut;
         }
 
-        imgIcon = (ImageView) view.findViewById(R.id.imgIcon);
+        /*
+        findviewById
+        */
+        ImageView imgIcon = (ImageView) view.findViewById(R.id.imgIcon);
         imgIcon.setColorFilter(builder.iconTintColor, PorterDuff.Mode.SRC_ATOP);
 
-        iconLayout = (RelativeLayout) view.findViewById(R.id.iconLayout);
+        RelativeLayout iconLayout = (RelativeLayout) view.findViewById(R.id.iconLayout);
         iconLayout.setBackgroundColor(builder.titleBgColor);
 
-        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
-        txtContent = (TextView) view.findViewById(R.id.txtContent);
+        TextView txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        TextView txtContent = (TextView) view.findViewById(R.id.txtContent);
 
-        btnPositive = (Button) view.findViewById(R.id.btnPositive);
-        btnNegative = (Button) view.findViewById(R.id.btnNegative);
-        btnNeutral = (Button) view.findViewById(R.id.btnNeutral);
+        Button btnPositive = (Button) view.findViewById(R.id.btnPositive);
+        Button btnNegative = (Button) view.findViewById(R.id.btnNegative);
+        Button btnNeutral = (Button) view.findViewById(R.id.btnNeutral);
+        View viewStrip = view.findViewById(R.id.viewStrip);
 
+        /*
+        apply customization to dialog
+        */
         btnPositive.setTextColor(builder.buttonTextColor);
         btnNegative.setTextColor(builder.buttonTextColor);
         btnNeutral.setTextColor(builder.buttonTextColor);
 
-        viewStrip = view.findViewById(R.id.viewStrip);
         if (builder.isDivider) {
             viewStrip.setVisibility(View.VISIBLE);
             viewStrip.setBackgroundColor(builder.stripColor);
@@ -221,55 +212,90 @@ public class DroidDialog {
             return new DroidDialog(this);
         }
 
+        /*
+        dialog topbar icon
+        */
         public Builder icon(int icon) {
             this.icon = icon;
             return this;
         }
 
+        /*
+        dialog title
+        */
         public Builder title(String title) {
             this.title = title;
             return this;
         }
 
+        /*
+        dialog content message
+        */
         public Builder content(String content) {
             this.content = content;
             return this;
         }
 
+        /*
+        dialog cancelable flag
+        */
         public Builder cancelable(boolean isCancelable, boolean isCancelableTouchOutside) {
             this.isCancelable = isCancelable;
             this.isCancelableTouchOutside = isCancelableTouchOutside;
             return this;
         }
 
+        /*
+        dialog positive button and click event handler
+        */
         public Builder positiveButton(String positiveText, onPositiveListener onPositiveListener) {
             this.positiveText = positiveText;
             this.onPositiveListener = onPositiveListener;
             return this;
         }
 
+        /*
+        dialog negative button and click event handler
+        */
         public Builder negativeButton(String negativeText, onNegativeListener onNegativeListener) {
             this.negativeText = negativeText;
             this.onNegativeListener = onNegativeListener;
             return this;
         }
 
+        /*
+        dialog neutral button and click event handler
+        */
         public Builder neutralButton(String neutralText, onNeutralListener onNeutralListener) {
             this.neutralText = neutralText;
             this.onNeutralListener = onNeutralListener;
             return this;
         }
 
+        /*
+        dialog custom typeface, applied to title, content message and button
+        -- put your .ttf file in assets/fonts directory
+        -- pass font file name with extension in String type
+        */
         public Builder typeface(String typeface) {
             this.typeface = typeface;
             return this;
         }
 
+        /*
+        dialog appear and disappear animation
+        */
         public Builder animation(int animType) {
             this.animType = animType;
             return this;
         }
 
+        /*
+        dialog color
+        -- titleBgColor : dialog topbar background color
+        -- iconTintColor : dialog topbar icon tint color
+        -- buttonTextColor : dialog positive, negative and neutral button text color
+        */
         public Builder color(int titleBgColor, int iconTintColor, int buttonTextColor) {
             this.titleBgColor = titleBgColor;
             this.iconTintColor = iconTintColor;
@@ -277,6 +303,10 @@ public class DroidDialog {
             return this;
         }
 
+        /*
+       divider between topbar and content
+       -- height of divider is 4dp
+       */
         public Builder divider(boolean isDivider, int stripColor) {
             this.isDivider = isDivider;
             this.stripColor = stripColor;

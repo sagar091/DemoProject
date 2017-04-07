@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MyDialog myDialog;
     private Context context;
 
     @Override
