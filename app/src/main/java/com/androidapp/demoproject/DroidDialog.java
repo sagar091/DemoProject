@@ -2,6 +2,7 @@ package com.androidapp.demoproject;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
@@ -17,7 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
- * Created by sagartahelyani on 28-03-2017.
+ * Created by droidbyme on 28-03-2017.
  */
 
 public class DroidDialog {
@@ -66,7 +67,7 @@ public class DroidDialog {
         findviewById
         */
         ImageView imgIcon = (ImageView) view.findViewById(R.id.imgIcon);
-        imgIcon.setColorFilter(builder.iconTintColor, PorterDuff.Mode.SRC_ATOP);
+        imgIcon.setColorFilter(builder.iconTintColor);
 
         RelativeLayout iconLayout = (RelativeLayout) view.findViewById(R.id.iconLayout);
         iconLayout.setBackgroundColor(builder.titleBgColor);

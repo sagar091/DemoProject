@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public void openDialog(View view) {
 
         new DroidDialog.Builder(context)
-                .icon(R.mipmap.ic_launcher)
+                .icon(R.drawable.ic_action_tick)
                 .title("All Well!")
                 .content(getString(R.string.short_text))
                 .cancelable(true, true)
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .typeface("regular.ttf")
-                .animation(AnimUtils.AnimZoomInOut)
+                .animation(AnimUtils.AnimFadeInOut)
                 .color(ContextCompat.getColor(context, R.color.colorPrimary), ContextCompat.getColor(context, R.color.colorWhite),
                         ContextCompat.getColor(context, R.color.colorPrimaryDark))
                 .divider(true, ContextCompat.getColor(context, R.color.orange))

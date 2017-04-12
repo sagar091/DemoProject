@@ -1,10 +1,10 @@
-# MyDynamicCalendarLibrary
-This is an Android Library for developer to use customized calendar with all type of views and features, like Month View, Week View, Day View, Agenda, Add Events, Add Holiday etc. So all of these features contain in one calendar.
+# DroidDialog
+This is an Android Library for showing Material Dialog with little customization with icons, colors, divider line.
 <br>
 Example is available in app module.
 
 <p>
-<img src="https://github.com/vatsaldesai92/MyDynamicCalendarLibrary/blob/master/app/src/main/assets/1.png" alt="screenshot" width="270">
+<img src="https://github.com/vatsaldesai92/MyDynamicCalendarLibrary/blob/master/app/src/main/assets/2.png" alt="screenshot" width="270">
 
 <img src="https://github.com/vatsaldesai92/MyDynamicCalendarLibrary/blob/master/app/src/main/assets/2.png" alt="screenshot" width="270">
 
