@@ -13,9 +13,9 @@ Example is available in app module.
 <img src="https://github.com/vatsaldesai92/MyDynamicCalendarLibrary/blob/master/app/src/main/assets/4.png" alt="screenshot" width="270">
 </p>
 
-##Download
+# Download
 
-###Gradle dependency:
+### Gradle dependency:
 - Add the following to your project level build.gradle:
 ~~~
 allprojects {
@@ -38,7 +38,7 @@ dependencies {
 </a>
 </p>
 
-##Usage
+### Usage
 
 - Add MyDynamicRecyclerView in xml file or dynamicaly careate in java file.
 ~~~
@@ -263,7 +263,7 @@ dependencies {
 ~~~
 
 
-##License
+## License
 ~~~
     Apache Version 2.0
 
