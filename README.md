@@ -4,9 +4,11 @@ This is an Android Library for showing Material Dialog with little customization
 Example is available in app module.
 
 <p>
-<img src="https://github.com/sagar091/DemoProject/blob/master/app/src/main/assets/device-2017-04-12-190227.png" alt="screenshot" width="270">
+<img src="https://github.com/sagar091/DemoProject/blob/master/app/src/main/assets/device-2017-04-12-193622.png" alt="screenshot" width="270">
 
-<img src="https://github.com/sagar091/DemoProject/blob/master/app/src/main/assets/device-2017-04-12-190132.png" alt="screenshot" width="270">
+<img src="https://github.com/sagar091/DemoProject/blob/master/app/src/main/assets/device-2017-04-12-193442.png" alt="screenshot" width="270">
+
+<img src="https://github.com/sagar091/DemoProject/blob/master/app/src/main/assets/device-2017-04-12-195446.png" alt="screenshot" width="270">
 
 </p>
 

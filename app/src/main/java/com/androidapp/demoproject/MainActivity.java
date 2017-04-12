@@ -32,25 +32,11 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(context, "YES", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .negativeButton("NO", new DroidDialog.onNegativeListener() {
-                    @Override
-                    public void onNegative(Dialog droidDialog) {
-                        droidDialog.dismiss();
-                        Toast.makeText(context, "NO", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .neutralButton("Dismiss", new DroidDialog.onNeutralListener() {
-                    @Override
-                    public void onNeutral(Dialog droidDialog) {
-                        droidDialog.dismiss();
-                        Toast.makeText(context, "Dismiss", Toast.LENGTH_SHORT).show();
-                    }
-                })
                 .typeface("regular.ttf")
-                .animation(AnimUtils.AnimFadeInOut)
-                .color(ContextCompat.getColor(context, R.color.colorPrimary), ContextCompat.getColor(context, R.color.colorWhite),
-                        ContextCompat.getColor(context, R.color.colorPrimaryDark))
-                .divider(true, ContextCompat.getColor(context, R.color.orange))
+                .animation(AnimUtils.AnimZoomInOut)
+                .color(ContextCompat.getColor(context, R.color.color1), ContextCompat.getColor(context, R.color.half_black),
+                        ContextCompat.getColor(context, R.color.black))
+                .divider(true, ContextCompat.getColor(context, R.color.light_half_black))
                 .show();
     }
 }
