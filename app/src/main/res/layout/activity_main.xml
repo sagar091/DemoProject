@@ -6,34 +6,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context="com.androidapp.demoproject.MainActivity">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="sign in"
-        android:textAllCaps="true"
-        android:textColor="@color/orange"
-        android:textSize="32sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif-condensed"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
+    
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
