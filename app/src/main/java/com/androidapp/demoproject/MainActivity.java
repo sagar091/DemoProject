@@ -1,9 +1,12 @@
 package com.androidapp.demoproject;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         new DroidDialog.Builder(context)
                 .icon(R.drawable.ic_action_tick)
                 .title("All Well!")
-                /*.content(getString(R.string.short_text))
+                .content(getString(R.string.short_text))
                 .cancelable(true, true)
                 .positiveButton("OK", new DroidDialog.onPositiveListener() {
                     @Override
@@ -29,11 +32,23 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(context, "YES", Toast.LENGTH_SHORT).show();
                     }
                 })
+                .negativeButton("No", new DroidDialog.onNegativeListener() {
+                    @Override
+                    public void onNegative(Dialog droidDialog) {
+
+                    }
+                })
+                .neutralButton("Neutral", new DroidDialog.onNeutralListener() {
+                    @Override
+                    public void onNeutral(Dialog droidDialog) {
+
+                    }
+                })
                 .typeface("regular.ttf")
-                .animation(AnimUtils.AnimZoomInOut)
-                .color(ContextCompat.getColor(context, R.color.color1), ContextCompat.getColor(context, R.color.half_black),
-                        ContextCompat.getColor(context, R.color.black))
-                .divider(true, ContextCompat.getColor(context, R.color.light_half_black))*/
+                .animation(AnimUtils.AnimFadeInOut)
+                .color(ContextCompat.getColor(context, R.color.indigo), ContextCompat.getColor(context, R.color.white),
+                        ContextCompat.getColor(context, R.color.dark_indigo))
+                .divider(true, ContextCompat.getColor(context, R.color.orange))
                 .show();
     }
 }

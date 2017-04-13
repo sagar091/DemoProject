@@ -39,20 +39,21 @@ dependencies {
 
 ### Usage
 
-- Create Builder Pattern for default Dialog. Default Dialog has tick_mark icon, "Title" as dialog title, "Content Description" as content, "Yes" & "No" buttons
+- Create Builder Pattern for default Dialog.<br>Default Dialog has tick_mark icon, "Title" as dialog title, "Content Description" as content, "Yes" & "No" buttons.
 ~~~
     new DroidDialog.Builder(context)
                     .show();
 ~~~
 
-- Add Icon  `.icon(int icon)`
+
+- Add Icon<br>`.icon(int icon)`
 ~~~ 
     new DroidDialog.Builder(context)
                     .icon(R.drawable.ic_action_tick)
                     .show();
 ~~~
 
-- Add Title
+- Add Title<br>`.title(String title)`
 ~~~
     new DroidDialog.Builder(context)
                    .icon(R.drawable.ic_action_tick)
@@ -60,191 +61,186 @@ dependencies {
                    .show();
 ~~~
 
-- Manage Events
+- Add Content<br>`.content(String content)`
 ~~~
-    myCalendar.setEventCellBackgroundColor("#852365");
-    myCalendar.setEventCellTextColor("#425684");
-
-    // Add event  -  addEvent(event_date, event_start_time, event_end_time, event_title)
-    myCalendar.addEvent("5-10-2016", "8:00", "8:15", "Today Event 1");
-    myCalendar.addEvent("05-10-2016", "8:15", "8:30", "Today Event 2");
-    myCalendar.addEvent("05-10-2016", "8:30", "8:45", "Today Event 3");
-
-    // Get list of event with detail
-    myCalendar.getEventList(new GetEventListListener() {
-        @Override
-        public void eventList(ArrayList<EventModel> eventList) {
-
-        }
-    });
-
-    // updateEvent(position, event_date, event_start_time, event_end_time, event_title)
-    myCalendar.updateEvent(0, "5-10-2016", "8:00", "8:15", "Today Event 111111");
-
-    // Delete single event
-    myCalendar.deleteEvent(2);
-
-    // Delete all events
-    myCalendar.deleteAllEvent();
+    new DroidDialog.Builder(context)
+                    .icon(R.drawable.ic_action_tick)
+                    .title("All Well!")
+                    .content(getString(R.string.short_text))
+                    .show();
 ~~~
 
-- Manage Holiday
+- Cancelable and CancelableTouchOutside<br>`.cancelable(boolean isCancelable, boolean isCancelableTouchOutside)`
+
+default : `.cancelable(true, false)`
+
 ~~~
-    myCalendar.setHolidayCellBackgroundColor("#654248");
-    myCalendar.setHolidayCellTextColor("#d590bb");
-
-    // set holiday date clickable true/false
-    myCalendar.setHolidayCellClickable(false);
-
-    // Add holiday  -  addHoliday(holiday_date)
-    myCalendar.addHoliday("2-11-2016");
-    myCalendar.addHoliday("13-11-2016");
-    myCalendar.addHoliday("8-10-2016");
-    myCalendar.addHoliday("10-12-2016");
+    new DroidDialog.Builder(context)
+                    .icon(R.drawable.ic_action_tick)
+                    .title("All Well!")
+                    .content(getString(R.string.short_text))
+                    .cancelable(true, false)
+                    .show();
 ~~~
 
-- Navigate to particular date
+- Add buttons and click event<br>`.positiveButton(String positiveText, onPositiveListener onPositiveListener)`, <br>`.negativeButton(String negativeText, onNegativeListener onNegativeListener)`,<br>`.neutralButton(String neutralText, onNeutralListener onNeutralListener)`
 ~~~
-    // setCalendarDate(date, month, year)
-    myCalendar.setCalendarDate(5, 10, 2016);
-~~~
-
-- Month View
-~~~
-    // show month view
-    myCalendar.showMonthView();
-
-    // date click listener
-    myCalendar.setOnDateClickListener(new OnDateClickListener() {
-        @Override
-        public void onClick(Date date) {
-
-        }
-
-        @Override
-        public void onLongClick(Date date) {
-
-        }
-    });
-~~~
-
-- Month View With Event List (Show event on event date click)
-~~~
-    // show month view with events
-    myCalendar.showMonthViewWithBelowEvents();
-
-    // date click listener
-    myCalendar.setOnDateClickListener(new OnDateClickListener() {
-        @Override
-        public void onClick(Date date) {
-
-        }
-
-        @Override
-        public void onLongClick(Date date) {
-
-        }
-    });
+    new DroidDialog.Builder(context)
+                    .icon(R.drawable.ic_action_tick)
+                    .title("All Well!")
+                    .content(getString(R.string.short_text))
+                    .cancelable(true, true)
+                    .positiveButton("OK", new DroidDialog.onPositiveListener() {
+                        @Override
+                        public void onPositive(Dialog droidDialog) {
+                            Toast.makeText(context, "YES", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .negativeButton("NO", new DroidDialog.onNegativeListener() {
+                        @Override
+                        public void onNegative(Dialog droidDialog) {
+                            Toast.makeText(context, "NO", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .neutralButton("DISMISS", new DroidDialog.onNeutralListener() {
+                        @Override
+                        public void onNeutral(Dialog droidDialog) {
+                            Toast.makeText(context, "DISMISS", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .show();
 ~~~
 
-- Week View
+- Add custom font from .ttf. Put your .ttf file at assets\fonts. Font will apply everywhere title, content, buttons <br>`.typeface(String typeface)`
 ~~~
-    // show week view
-    myCalendar.showWeekView();
-
-    // date click listener
-    myCalendar.setOnDateClickListener(new OnDateClickListener() {
-        @Override
-        public void onClick(Date date) {
-
-        }
-
-        @Override
-        public void onLongClick(Date date) {
-
-        }
-    });
-
-    // week view blank cell click listener
-    myCalendar.setOnWeekDayViewClickListener(new OnWeekDayViewClickListener() {
-        @Override
-        public void onClick(String date, String time) {
-
-        }
-
-        @Override
-        public void onLongClick(String date, String time) {
-
-        }
-    });
-
-    // single event cell click listener
-    myCalendar.setOnEventClickListener(new OnEventClickListener() {
-        @Override
-        public void onClick() {
-
-        }
-
-        @Override
-        public void onLongClick() {
-
-        }
-    });
+    new DroidDialog.Builder(context)
+                    .icon(R.drawable.ic_action_tick)
+                    .title("All Well!")
+                    .content(getString(R.string.short_text))
+                    .cancelable(true, true)
+                    .positiveButton("OK", new DroidDialog.onPositiveListener() {
+                        @Override
+                        public void onPositive(Dialog droidDialog) {
+                            Toast.makeText(context, "YES", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .negativeButton("No", new DroidDialog.onNegativeListener() {
+                        @Override
+                        public void onNegative(Dialog droidDialog) {
+    
+                        }
+                    })
+                    .neutralButton("Neutral", new DroidDialog.onNeutralListener() {
+                        @Override
+                        public void onNeutral(Dialog droidDialog) {
+    
+                        }
+                    })
+                    .typeface("Roboto.ttf")
+                    .show();
 ~~~
 
-- Day View
+- Add animation while appear and disappearing dialog. 8 Types of animation is defined in AnimationUtils class.<br>`.animation(int animType)`
 ~~~
-    // show day view
-    myCalendar.showDayView();
-
-    // day view blank cell click listener
-    myCalendar.setOnWeekDayViewClickListener(new OnWeekDayViewClickListener() {
-        @Override
-        public void onClick(String date, String time) {
-
-        }
-
-        @Override
-        public void onLongClick(String date, String time) {
-
-        }
-    });
-
-    // single event cell click listener
-    myCalendar.setOnEventClickListener(new OnEventClickListener() {
-        @Override
-        public void onClick() {
-
-        }
-
-        @Override
-        public void onLongClick() {
-
-        }
-    });
+    new DroidDialog.Builder(context)
+                    .icon(R.drawable.ic_action_tick)
+                    .title("All Well!")
+                    .content(getString(R.string.short_text))
+                    .cancelable(true, true)
+                    .positiveButton("OK", new DroidDialog.onPositiveListener() {
+                        @Override
+                        public void onPositive(Dialog droidDialog) {
+                            Toast.makeText(context, "YES", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .negativeButton("No", new DroidDialog.onNegativeListener() {
+                        @Override
+                        public void onNegative(Dialog droidDialog) {
+    
+                        }
+                    })
+                    .neutralButton("Neutral", new DroidDialog.onNeutralListener() {
+                        @Override
+                        public void onNeutral(Dialog droidDialog) {
+    
+                        }
+                    })
+                    .typeface("regular.ttf")
+                    .animation(AnimUtils.AnimFadeInOut)
+                    .show();
 ~~~
 
-- Agenda View
+- Customized Color<br>`.color(int titleBgColor, int iconTintColor, int buttonTextColor)`
+
+default : `.color(ContextCompat.getColor(context, R.color.indigo), ContextCompat.getColor(context, R.color.white), ContextCompat.getColor(context, R.color.dark_indigo))`
 ~~~
-    // show agenda view
-    myCalendar.showAgendaView();
+    new DroidDialog.Builder(context)
+                    .icon(R.drawable.ic_action_tick)
+                    .title("All Well!")
+                    .content(getString(R.string.short_text))
+                    .cancelable(true, true)
+                    .positiveButton("OK", new DroidDialog.onPositiveListener() {
+                        @Override
+                        public void onPositive(Dialog droidDialog) {
+                            Toast.makeText(context, "YES", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .negativeButton("No", new DroidDialog.onNegativeListener() {
+                        @Override
+                        public void onNegative(Dialog droidDialog) {
+    
+                        }
+                    })
+                    .neutralButton("Neutral", new DroidDialog.onNeutralListener() {
+                        @Override
+                        public void onNeutral(Dialog droidDialog) {
+    
+                        }
+                    })
+                    .typeface("regular.ttf")
+                    .animation(AnimUtils.AnimFadeInOut)
+                    .color(ContextCompat.getColor(context, R.color.indigo), ContextCompat.getColor(context, R.color.white),
+                                            ContextCompat.getColor(context, R.color.dark_indigo))
+                    .show();
+~~~
 
-    // date click listener
-    myCalendar.setOnDateClickListener(new OnDateClickListener() {
-        @Override
-        public void onClick(Date date) {
+- Divider between topbar and title. If isDivider true then dividerColor is as params, if false then its negligible<br> `.divider(boolean isDivider, int dividerColor)`
 
-        }
-
-        @Override
-        public void onLongClick(Date date) {
-
-        }
-    });
+default : `.divider(false, ContextCompat.getColor(context, R.color.orange))`
+~~~
+    new DroidDialog.Builder(context)
+                    .icon(R.drawable.ic_action_tick)
+                    .title("All Well!")
+                    .content(getString(R.string.short_text))
+                    .cancelable(true, true)
+                    .positiveButton("OK", new DroidDialog.onPositiveListener() {
+                        @Override
+                        public void onPositive(Dialog droidDialog) {
+                            Toast.makeText(context, "YES", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .negativeButton("No", new DroidDialog.onNegativeListener() {
+                        @Override
+                        public void onNegative(Dialog droidDialog) {
+    
+                        }
+                    })
+                    .neutralButton("Neutral", new DroidDialog.onNeutralListener() {
+                        @Override
+                        public void onNeutral(Dialog droidDialog) {
+    
+                        }
+                    })
+                    .typeface("regular.ttf")
+                    .animation(AnimUtils.AnimFadeInOut)
+                    .color(ContextCompat.getColor(context, R.color.indigo), ContextCompat.getColor(context, R.color.white),
+                            ContextCompat.getColor(context, R.color.dark_indigo))
+                    .divider(true, ContextCompat.getColor(context, R.color.orange))
+                    .show();
 ~~~
 
 
-## License
+### License
 ~~~
     Apache Version 2.0
 

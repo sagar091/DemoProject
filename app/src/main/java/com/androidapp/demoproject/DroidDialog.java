@@ -89,7 +89,7 @@ public class DroidDialog {
 
         if (builder.isDivider) {
             viewStrip.setVisibility(View.VISIBLE);
-            viewStrip.setBackgroundColor(builder.stripColor);
+            viewStrip.setBackgroundColor(builder.dividerColor);
         } else {
             viewStrip.setVisibility(View.GONE);
         }
@@ -179,7 +179,7 @@ public class DroidDialog {
         private String content = "Content Description";
 
         private boolean isCancelable = true;
-        private boolean isCancelableTouchOutside = true;
+        private boolean isCancelableTouchOutside = false;
 
         private String positiveText = "Yes";
         private onPositiveListener onPositiveListener = new onPositiveListener() {
@@ -214,14 +214,14 @@ public class DroidDialog {
         private int buttonTextColor = 0;
 
         private boolean isDivider = false;
-        private int stripColor = 0;
+        private int dividerColor = 0;
 
         public Builder(Context context) {
             this.context = context;
             titleBgColor = ContextCompat.getColor(context, R.color.indigo);
             iconTintColor = ContextCompat.getColor(context, R.color.white);
             buttonTextColor = ContextCompat.getColor(context, R.color.dark_indigo);
-            stripColor = ContextCompat.getColor(context, R.color.orange);
+            dividerColor = ContextCompat.getColor(context, R.color.orange);
         }
 
         public DroidDialog show() {
@@ -323,9 +323,9 @@ public class DroidDialog {
        divider between topbar and content
        -- height of divider is 4dp
        */
-        public Builder divider(boolean isDivider, int stripColor) {
+        public Builder divider(boolean isDivider, int dividerColor) {
             this.isDivider = isDivider;
-            this.stripColor = stripColor;
+            this.dividerColor = dividerColor;
             return this;
         }
     }
