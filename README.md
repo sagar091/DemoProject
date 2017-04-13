@@ -83,7 +83,7 @@ default : `.cancelable(true, false)`
                     .show();
 ~~~
 
-- Add buttons and click event<br>`.positiveButton(String positiveText, onPositiveListener onPositiveListener)`, <br>`.negativeButton(String negativeText, onNegativeListener onNegativeListener)`,<br>`.neutralButton(String neutralText, onNeutralListener onNeutralListener)`
+- Add buttons and click event<br>`.positiveButton(String positiveText, onPositiveListener onPositiveListener)`<br>`.negativeButton(String negativeText, onNegativeListener onNegativeListener)`<br>`.neutralButton(String neutralText, onNeutralListener onNeutralListener)`
 ~~~
     new DroidDialog.Builder(context)
                     .icon(R.drawable.ic_action_tick)
@@ -140,7 +140,7 @@ default : `.cancelable(true, false)`
                     .show();
 ~~~
 
-- Add animation while appear and disappearing dialog. 8 Types of animation is defined in AnimationUtils class.<br>`.animation(int animType)`
+- Add animation while appear and disappearing dialog. 8 Types of animation is defined in `AnimationUtils` class.<br>`.animation(int animType)`
 ~~~
     new DroidDialog.Builder(context)
                     .icon(R.drawable.ic_action_tick)
