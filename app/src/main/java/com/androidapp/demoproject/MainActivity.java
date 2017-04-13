@@ -1,12 +1,9 @@
 package com.androidapp.demoproject;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
     public void openDialog(View view) {
 
         new DroidDialog.Builder(context)
-                /*.icon(R.drawable.ic_action_tick)
+                .icon(R.drawable.ic_action_tick)
                 .title("All Well!")
-                .content(getString(R.string.short_text))
+                /*.content(getString(R.string.short_text))
                 .cancelable(true, true)
                 .positiveButton("OK", new DroidDialog.onPositiveListener() {
                     @Override

@@ -39,43 +39,25 @@ dependencies {
 
 ### Usage
 
-- Add MyDynamicRecyclerView in xml file or dynamicaly careate in java file.
+- Create Builder Pattern for default Dialog. Default Dialog has tick_mark icon, "Title" as dialog title, "Content Description" as content, "Yes" & "No" buttons
 ~~~
-    <com.desai.vatsal.mydynamiccalendar.MyDynamicCalendar
-        android:id="@+id/myCalendar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-	
-	MyDynamicCalendar myCalendar = new MyDynamicCalendar(this);
+    new DroidDialog.Builder(context)
+                    .show();
 ~~~
 
-- Design Calendar View
-~~~
-    myCalendar.setCalendarBackgroundColor("#eeeeee");	or	 myCalendar.setCalendarBackgroundColor(R.color.gray);
-    myCalendar.setHeaderBackgroundColor("#454265");
-    myCalendar.setHeaderTextColor("#ffffff");
-    myCalendar.setNextPreviousIndicatorColor("#245675");
-    myCalendar.setWeekDayLayoutBackgroundColor("#965471");
-    myCalendar.setWeekDayLayoutTextColor("#246245");
-    myCalendar.setExtraDatesOfMonthBackgroundColor("#324568");
-    myCalendar.setExtraDatesOfMonthTextColor("#756325");
-    myCalendar.setDatesOfMonthBackgroundColor("#145687");
-    myCalendar.setDatesOfMonthTextColor("#745632");
-    myCalendar.setCurrentDateBackgroundColor(R.color.black);
-    myCalendar.setCurrentDateTextColor("#00e600");
-    myCalendar.setBelowMonthEventTextColor("#425684");
-    myCalendar.setBelowMonthEventDividerColor("#635478");
+- Add Icon  `.icon(int icon)`
+~~~ 
+    new DroidDialog.Builder(context)
+                    .icon(R.drawable.ic_action_tick)
+                    .show();
 ~~~
 
-- Manage Saturday & Sunday
+- Add Title
 ~~~
-   // set all saturday off(Holiday) - default value is false
-   // isSaturdayOff(true/false, date_background_color, date_text_color);
-   myCalendar.isSaturdayOff(true, "#ffffff", "#ff0000");
-
-   // set all sunday off(Holiday) - default value is false
-   // isSundayOff(true/false, date_background_color, date_text_color);
-   myCalendar.isSundayOff(true, "#ffffff", "#ff0000");
+    new DroidDialog.Builder(context)
+                   .icon(R.drawable.ic_action_tick)
+                   .title("All Well!")
+                   .show();
 ~~~
 
 - Manage Events
